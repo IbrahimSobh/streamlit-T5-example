@@ -13,23 +13,9 @@ summarizer = pipeline(
 st.write('summarizer pipeline is loaded')
 
 
-initial_text = "Machine learning is a subfield of artificial intelligence (AI) that involves the development of algorithms\
-and statistical models that enable computers to improve their performance in tasks through experience. \
-The goal of machine learning generally is to understand the structure of data and fit that data into models that can be understood and utilized by people. \
-Although machine learning is a field within computer science, it differs from traditional computational approaches. \
-In traditional computing, algorithms are sets of explicitly programmed instructions used by computers to perform tasks. \
-In machine learning, algorithms are used to identify patterns in data and then make predictions or decisions based on those patterns." 
-
-# initial_text = "Egypt is a country located in the north of Africa. Its heartland, the Nile River valley and delta. \
-# Egypt has thousands of years of recorded history. Ancient Egypt was among the earliest civilizations in the world and \
-# was the site of one of the world’s earliest urban and literate societies.\
-# Ancient Egypt was the preeminent civilization in the Mediterranean world for almost 30 centuries. \
-# Egypt has a rich history & culture that dates back thousands of years ago starting with the Pharaohnic culture. \
-# Egypt is a popular tourist destination with many attractions. Some of the popular tourist destinations are Cairo, Sharm El Sheikh, Hurghada, Luxor and Aswan."  
-
 result = []
 with st.form('summarize_form', clear_on_submit=True):
-    txt_input = st.text_area('Enter text:', initial_text, height=200)
+    txt_input = st.text_area('Enter text:', '', height=200)
     submitted = st.form_submit_button('Submit')
     if submitted: 
         with st.spinner('Calculating...'):
