@@ -57,7 +57,7 @@ with st.form('summarize_form', clear_on_submit=True):
         #st.info(summary_txt[0]["summary_text"])
 
 if len(result):
-    st.info(result[0])            
+    st.info(result[0][0]["summary_text"])            
 #----------------------------------------------------------------
 
 
