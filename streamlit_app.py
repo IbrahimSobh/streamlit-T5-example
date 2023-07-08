@@ -43,8 +43,8 @@ result = summarizer(
     early_stopping=True,
 )
 #print(result[0]["generated_text"])
-#st.write(result[0]["generated_text"])
-st.write(result)
+st.write(result[0]["summary_text"])
+
 
 # with st.echo(code_location='below'):
 #     total_points = st.slider("Sobh: Number of points in spiral", 1, 5000, 500)
