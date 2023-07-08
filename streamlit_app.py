@@ -1,7 +1,3 @@
-from collections import namedtuple
-import altair as alt
-import math
-import pandas as pd
 import streamlit as st
 import torch
 from transformers import pipeline
@@ -48,7 +44,7 @@ with st.form('summarize_form', clear_on_submit=True):
             )
 
 if submitted: 
-    st.info(summary_txt)
+    st.info(summary_txt[0]["summary_text"])
 else:
     st.info('No generated summary!')
 
