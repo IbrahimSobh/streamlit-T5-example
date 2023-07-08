@@ -29,25 +29,24 @@ st.write('summarizer pipeline is loaded')
 st.title('🤗 Text Summarizer')
 txt_input = st.text_area('Enter your text', '', height=200)
 
-# Form to accept user's text input for summarization
-
 with st.form('summarize_form', clear_on_submit=True):
-    #openai_api_key = st.text_input('OpenAI API Key', type = 'password', disabled=not txt_input)
     submitted = st.form_submit_button('Submit')
     if submitted: 
         with st.spinner('Calculating...'):
-            summary_txt = summarizer(
-                submitted,
-                min_length=8,
-                max_length=64,
-                no_repeat_ngram_size=3,
-                encoder_no_repeat_ngram_size=3,
-                repetition_penalty=3.5,
-                num_beams=2,
-                do_sample=False,
-                early_stopping=True,
-            )
-st.info(summary_txt[0]["summary_text"])
+            # summary_txt = summarizer(
+            #     submitted,
+            #     min_length=8,
+            #     max_length=64,
+            #     no_repeat_ngram_size=3,
+            #     encoder_no_repeat_ngram_size=3,
+            #     repetition_penalty=3.5,
+            #     num_beams=2,
+            #     do_sample=False,
+            #     early_stopping=True,
+            # )
+
+#st.info(summary_txt[0]["summary_text"])
+st.info('test')            
 
 
 #----------------------------------------------------------------
