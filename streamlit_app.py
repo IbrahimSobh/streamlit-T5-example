@@ -12,7 +12,7 @@ input_text = "translate English to German: How old are you?"
 input_ids = tokenizer(input_text, return_tensors="pt").input_ids
 
 outputs = model.generate(input_ids)
-print(tokenizer.decode(outputs[0]))
+st.write(tokenizer.decode(outputs[0]))
 
 
 # summarizer = pipeline(
