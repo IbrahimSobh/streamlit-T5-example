@@ -3,7 +3,7 @@ import torch
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 """
-# Welcome to Generative AI tutorial with Faln-T5 model 🤗 🚀 
+# Welcome to Generative AI tutorial with Faln-T5 model 🤗
 
 [T5](https://huggingface.co/t5-base) model reframes all NLP tasks into a unified text-to-text-format where the input and output are always text strings.
 The same model, loss function, and hyperparameters can be used on any NLP task. [Flan-T5](https://huggingface.co/google/flan-t5-small) is just better at everything!
