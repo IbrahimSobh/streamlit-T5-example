@@ -41,20 +41,21 @@ with st.form('summarize_form', clear_on_submit=True):
     txt_input = st.text_area('Enter text:', wall_of_text, height=200)
     submitted = st.form_submit_button('Submit')
     if submitted: 
-            summary_txt = summarizer(
-                txt_input,
-                min_length=8,
-                max_length=64,
-                no_repeat_ngram_size=3,
-                encoder_no_repeat_ngram_size=3,
-                repetition_penalty=3.5,
-                num_beams=2,
-                do_sample=False,
-                early_stopping=True,
-            )
-            st.info(summary_txt[0]["summary_text"])
-            # if summary_txt:
-            #     sum_res = summary_txt[0]["summary_text"]
+        st.spinner('Calculating...')    
+        summary_txt = summarizer(
+            txt_input,
+            min_length=8,
+            max_length=64,
+            no_repeat_ngram_size=3,
+            encoder_no_repeat_ngram_size=3,
+            repetition_penalty=3.5,
+            num_beams=2,
+            do_sample=False,
+            early_stopping=True,
+        )
+        st.info(summary_txt[0]["summary_text"])
+        # if summary_txt:
+        #     sum_res = summary_txt[0]["summary_text"]
             
 
 # if sum_res: 
