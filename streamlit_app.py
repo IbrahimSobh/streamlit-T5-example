@@ -21,7 +21,7 @@ with st.form('T5_form', clear_on_submit=False):
     submitted = st.form_submit_button('Submit')
     if submitted: 
         with st.spinner('Calculating...'):
-            input_ids = tokenizer(input_text, return_tensors="pt").input_ids
+            input_ids = tokenizer(txt_input, return_tensors="pt").input_ids
             outputs = model.generate(input_ids)
             result.append(outputs)
 
