@@ -1,4 +1,3 @@
-altair
 pandas
 torch
 transformers 
