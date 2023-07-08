@@ -25,7 +25,7 @@ st.write('flan-t5-small is loaded')
 
 result = []
 with st.form('T5_form', clear_on_submit=False):
-    txt_input = st.text_area('Enter text:', 'translate English to German: How old are you?', height=50)
+    txt_input = st.text_area('Enter text:', 'translate English to German: How are you?', height=50)
     submitted = st.form_submit_button('Submit')
     if submitted: 
         with st.spinner('Calculating...'):
