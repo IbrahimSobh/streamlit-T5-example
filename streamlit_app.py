@@ -16,7 +16,7 @@ initial_text = "Egypt is a country located in the north of Africa. Its heartland
 Egypt has thousands of years of recorded history. Ancient Egypt was among the earliest civilizations in the world and \
 was the site of one of the world’s earliest urban and literate societies.\
 Ancient Egypt was the preeminent civilization in the Mediterranean world for almost 30 centuries. \
-Egypt has a rich history & culture that dates back thousands of years ago starting with the Pharaohnic culture the Christianity & Islam. \
+Egypt has a rich history & culture that dates back thousands of years ago starting with the Pharaohnic culture. \
 Egypt is a popular tourist destination with many attractions. Some of the popular tourist destinations are Cairo, Sharm El Sheikh, Hurghada, Luxor, Aswan"  
 
 result = []
