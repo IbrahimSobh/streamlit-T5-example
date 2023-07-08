@@ -14,10 +14,6 @@ For more, check out my LinkedIn [Ibrahim Sobh](https://www.linkedin.com/in/ibrah
 
 """
 
-st.set_page_config(page_title='Faln-T5 model 🤗 🚀')
-st.title('Faln-T5 model 🤗 🚀')
-
-
 tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-small")
 model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-small")
 st.write('flan-t5-small is loaded')
