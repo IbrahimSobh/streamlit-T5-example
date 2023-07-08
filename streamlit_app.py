@@ -13,26 +13,37 @@ from transformers import pipeline
 # In the meantime, below is an example of what you can do with just a few lines of code:
 # """
 
-hf_name = "pszemraj/led-base-book-summary"
+st.title('🤗 Text Summarizer')
+
 summarizer = pipeline(
     "summarization",
-    hf_name,
+    "pszemraj/led-base-book-summary",
     device=0 if torch.cuda.is_available() else -1,
 )
+
 st.write('summarizer pipeline is loaded')
 
 
-st.title('🤗 Text Summarizer')
-txt_input = st.text_area('Enter your text', '', height=200)
+# with st.form('my_form'):
+#   text = st.text_area('Enter text:', 'What are the three key pieces of advice for learning how to code?')
+#   submitted = st.form_submit_button('Submit')
+#   if not openai_api_key.startswith('sk-'):
+#     st.warning('Please enter your OpenAI API key!', icon='⚠')
+#   if submitted and openai_api_key.startswith('sk-'):
+#     generate_response(text)
 
-#wall_of_text = "The majority of available text summarization datasets include short-form source documents that lack long-range causal and temporal dependencies, and often contain strong layout and stylistic biases. While relevant, such datasets will offer limited challenges for future generations of text summarization systems. We address these issues by introducing BookSum, a collection of datasets for long-form narrative summarization. Our dataset covers source documents from the literature domain, such as novels, plays and stories, and includes highly abstractive, human written summaries on three levels of granularity of increasing difficulty: paragraph-, chapter-, and book-level. The domain and structure of our dataset poses a unique set of challenges for summarization systems, which include: processing very long documents, non-trivial causal and temporal dependencies, and rich discourse structures. To facilitate future work, we trained and evaluated multiple extractive and abstractive summarization models as baselines for our dataset."
+
+#txt_input = st.text_area('Enter your text', '', height=200)
+
+wall_of_text = "The majority of available text summarization datasets include short-form source documents that lack long-range causal and temporal dependencies, and often contain strong layout and stylistic biases. While relevant, such datasets will offer limited challenges for future generations of text summarization systems. We address these issues by introducing BookSum, a collection of datasets for long-form narrative summarization. Our dataset covers source documents from the literature domain, such as novels, plays and stories, and includes highly abstractive, human written summaries on three levels of granularity of increasing difficulty: paragraph-, chapter-, and book-level. The domain and structure of our dataset poses a unique set of challenges for summarization systems, which include: processing very long documents, non-trivial causal and temporal dependencies, and rich discourse structures. To facilitate future work, we trained and evaluated multiple extractive and abstractive summarization models as baselines for our dataset."
 
 with st.form('summarize_form', clear_on_submit=True):
+    txt_input = st.text_area('Enter text:', wall_of_text, height=200)
     submitted = st.form_submit_button('Submit')
     if submitted: 
         with st.spinner('Calculating...'):
             summary_txt = summarizer(
-                submitted,
+                txt_input,
                 min_length=8,
                 max_length=64,
                 no_repeat_ngram_size=3,
@@ -43,7 +54,7 @@ with st.form('summarize_form', clear_on_submit=True):
                 early_stopping=True,
             )
 
-if submitted: 
+if summary_txt[0]["summary_text"]: 
     st.info(summary_txt[0]["summary_text"])
 else:
     st.info('No generated summary!')
