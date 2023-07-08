@@ -7,8 +7,8 @@ st.title('🤗 Text Summarizer: https://www.linkedin.com/in/ibrahim-sobh-phd-868
 
 #tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-small")
 #model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-small")
-tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
-model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large")
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-base")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
 
 st.write('flan-t5-small is loaded')
 
