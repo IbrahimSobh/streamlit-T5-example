@@ -42,7 +42,7 @@ with st.form('summarize_form', clear_on_submit=True):
     submitted = st.form_submit_button('Submit')
     if submitted: 
         with st.spinner('Calculating...'):
-            sum_res = summarizer(
+            summary_txt = summarizer(
                 txt_input,
                 min_length=8,
                 max_length=64,
@@ -53,7 +53,8 @@ with st.form('summarize_form', clear_on_submit=True):
                 do_sample=False,
                 early_stopping=True,
             )
-            sum_res = summary_txt[0]["summary_text"]
+            if summary_txt:
+                sum_res = summary_txt[0]["summary_text"]
             
 
 if sum_res: 
