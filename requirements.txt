@@ -2,4 +2,5 @@ altair
 pandas
 torch
 transformers 
+sentencepiece
 streamlit
