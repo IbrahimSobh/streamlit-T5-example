@@ -14,8 +14,8 @@ For more, check out my LinkedIn [Ibrahim Sobh](https://www.linkedin.com/in/ibrah
 
 """
 
+st.set_page_config(page_title='Faln-T5 model 🤗 🚀)
 
-#st.title('🤗 Text Summarizer: https://www.linkedin.com/in/ibrahim-sobh-phd-8681757/')
 
 
 tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-small")
