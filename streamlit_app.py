@@ -47,7 +47,11 @@ with st.form('summarize_form', clear_on_submit=True):
                 early_stopping=True,
             )
 
-st.info(summary_txt)
+if submitted: 
+    st.info(summary_txt)
+else:
+    st.info('No generated summary!')
+
 #st.info(summary_txt[0]["summary_text"])
 #st.info('test')            
 
