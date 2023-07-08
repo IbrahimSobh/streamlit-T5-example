@@ -3,6 +3,8 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import torch
+from transformers import pipeline
 
 # """
 # # Welcome to Streamlit!
@@ -19,6 +21,29 @@ st.title('🎈 App Name')
 st.write('Hello world!')
 
 
+hf_name = "pszemraj/led-base-book-summary"
+
+summarizer = pipeline(
+    "summarization",
+    hf_name,
+    device=0 if torch.cuda.is_available() else -1,
+)
+
+wall_of_text = "The majority of available text summarization datasets include short-form source documents that lack long-range causal and temporal dependencies, and often contain strong layout and stylistic biases. While relevant, such datasets will offer limited challenges for future generations of text summarization systems. We address these issues by introducing BookSum, a collection of datasets for long-form narrative summarization. Our dataset covers source documents from the literature domain, such as novels, plays and stories, and includes highly abstractive, human written summaries on three levels of granularity of increasing difficulty: paragraph-, chapter-, and book-level. The domain and structure of our dataset poses a unique set of challenges for summarization systems, which include: processing very long documents, non-trivial causal and temporal dependencies, and rich discourse structures. To facilitate future work, we trained and evaluated multiple extractive and abstractive summarization models as baselines for our dataset."
+
+result = summarizer(
+    wall_of_text,
+    min_length=8,
+    max_length=64,
+    no_repeat_ngram_size=3,
+    encoder_no_repeat_ngram_size=3,
+    repetition_penalty=3.5,
+    num_beams=2,
+    do_sample=False,
+    early_stopping=True,
+)
+#print(result[0]["generated_text"])
+st.write(result[0]["generated_text"])
 
 # with st.echo(code_location='below'):
 #     total_points = st.slider("Sobh: Number of points in spiral", 1, 5000, 500)
