@@ -30,7 +30,7 @@ st.title('🤗 Text Summarizer')
 txt_input = st.text_area('Enter your text', '', height=200)
 
 # Form to accept user's text input for summarization
-result = []
+
 with st.form('summarize_form', clear_on_submit=True):
     #openai_api_key = st.text_input('OpenAI API Key', type = 'password', disabled=not txt_input)
     submitted = st.form_submit_button('Submit')
@@ -47,10 +47,7 @@ with st.form('summarize_form', clear_on_submit=True):
                 do_sample=False,
                 early_stopping=True,
             )
-            result.append(summary_txt[0]["summary_text"])
-
-if len(result):
-    st.info(response)
+st.info(summary_txt[0]["summary_text"])
 
 
 #----------------------------------------------------------------
