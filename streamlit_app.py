@@ -2,12 +2,18 @@ import streamlit as st
 import torch
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-'''
+"""
+# Welcome to Streamlit! 🤗 Generaive AI tutorial with Faln-T5 model 
 
-Hello my dears  [test](https://www.linkedin.com/in/ibrahim-sobh-phd-8681757/)
+[T5](https://huggingface.co/t5-base) model reframes all NLP tasks into a unified text-to-text-format where the input and output are always text strings.
+The same model, loss function, and hyperparameters can be used on any NLP task. [Flan-T5](https://huggingface.co/google/flan-t5-small) is just better at everything!
 
+For more, check out my LinkedIn [Ibrahim Sobh](https://www.linkedin.com/in/ibrahim-sobh-phd-8681757/)
 
-'''
+![T5](https://camo.githubusercontent.com/623b4dea0b653f2ad3f36c71ebfe749a677ac0a1/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f343030362f312a44304a31674e51663876727255704b657944387750412e706e67)
+
+"""
+
 
 st.title('🤗 Text Summarizer: https://www.linkedin.com/in/ibrahim-sobh-phd-8681757/')
 
