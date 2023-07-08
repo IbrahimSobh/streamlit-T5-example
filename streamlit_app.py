@@ -23,11 +23,15 @@ st.write('Hello world!')
 
 hf_name = "pszemraj/led-base-book-summary"
 
+st.write('Is cuda available?' ,torch.cuda.is_available())
+
 summarizer = pipeline(
     "summarization",
     hf_name,
     device=0 if torch.cuda.is_available() else -1,
 )
+
+st.write('summarizer pipeline is loaded')
 
 wall_of_text = "The majority of available text summarization datasets include short-form source documents that lack long-range causal and temporal dependencies, and often contain strong layout and stylistic biases. While relevant, such datasets will offer limited challenges for future generations of text summarization systems. We address these issues by introducing BookSum, a collection of datasets for long-form narrative summarization. Our dataset covers source documents from the literature domain, such as novels, plays and stories, and includes highly abstractive, human written summaries on three levels of granularity of increasing difficulty: paragraph-, chapter-, and book-level. The domain and structure of our dataset poses a unique set of challenges for summarization systems, which include: processing very long documents, non-trivial causal and temporal dependencies, and rich discourse structures. To facilitate future work, we trained and evaluated multiple extractive and abstractive summarization models as baselines for our dataset."
 
@@ -43,6 +47,7 @@ result = summarizer(
     early_stopping=True,
 )
 #print(result[0]["generated_text"])
+st.write('Summarizing ...')
 st.write(result[0]["summary_text"])
 
 
