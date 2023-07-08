@@ -10,7 +10,7 @@ The same model, loss function, and hyperparameters can be used on any NLP task. 
 
 For more, check out my LinkedIn [Ibrahim Sobh](https://www.linkedin.com/in/ibrahim-sobh-phd-8681757/)
 
-<img src="https://1.bp.blogspot.com/-o4oiOExxq1s/Xk26XPC3haI/AAAAAAAAFU8/NBlvOWB84L0PTYy9TzZBaLf6fwPGJTR0QCLcBGAsYHQ/s640/image3.gif" alt="drawing" width="100"/>
+![t5img](https://1.bp.blogspot.com/-o4oiOExxq1s/Xk26XPC3haI/AAAAAAAAFU8/NBlvOWB84L0PTYy9TzZBaLf6fwPGJTR0QCLcBGAsYHQ/s640/image3.gif)
 
 """
 
