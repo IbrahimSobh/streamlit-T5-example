@@ -37,7 +37,7 @@ with st.form('summarize_form', clear_on_submit=True):
     if submitted: 
         with st.spinner('Calculating...'):
             summary_txt = summarizer(
-                wall_of_text,
+                submitted,
                 min_length=8,
                 max_length=64,
                 no_repeat_ngram_size=3,
