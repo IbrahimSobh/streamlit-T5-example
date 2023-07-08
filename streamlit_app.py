@@ -17,38 +17,74 @@ from transformers import pipeline
 # In the meantime, below is an example of what you can do with just a few lines of code:
 # """
 
-st.title('🎈 App Name')
-st.write('Hello world!')
-
-
 hf_name = "pszemraj/led-base-book-summary"
-
-st.write('Is cuda available?' ,torch.cuda.is_available())
-
 summarizer = pipeline(
     "summarization",
     hf_name,
     device=0 if torch.cuda.is_available() else -1,
 )
-
 st.write('summarizer pipeline is loaded')
 
-wall_of_text = "The majority of available text summarization datasets include short-form source documents that lack long-range causal and temporal dependencies, and often contain strong layout and stylistic biases. While relevant, such datasets will offer limited challenges for future generations of text summarization systems. We address these issues by introducing BookSum, a collection of datasets for long-form narrative summarization. Our dataset covers source documents from the literature domain, such as novels, plays and stories, and includes highly abstractive, human written summaries on three levels of granularity of increasing difficulty: paragraph-, chapter-, and book-level. The domain and structure of our dataset poses a unique set of challenges for summarization systems, which include: processing very long documents, non-trivial causal and temporal dependencies, and rich discourse structures. To facilitate future work, we trained and evaluated multiple extractive and abstractive summarization models as baselines for our dataset."
 
-result = summarizer(
-    wall_of_text,
-    min_length=8,
-    max_length=64,
-    no_repeat_ngram_size=3,
-    encoder_no_repeat_ngram_size=3,
-    repetition_penalty=3.5,
-    num_beams=2,
-    do_sample=False,
-    early_stopping=True,
-)
-#print(result[0]["generated_text"])
-st.write('Summarizing ...')
-st.write(result[0]["summary_text"])
+st.title('🤗 Text Summarizer')
+txt_input = st.text_area('Enter your text', '', height=200)
+
+# Form to accept user's text input for summarization
+result = []
+with st.form('summarize_form', clear_on_submit=True):
+    #openai_api_key = st.text_input('OpenAI API Key', type = 'password', disabled=not txt_input)
+    submitted = st.form_submit_button('Submit')
+    if submitted 
+        with st.spinner('Calculating...'):
+            summary_txt = summarizer(
+                wall_of_text,
+                min_length=8,
+                max_length=64,
+                no_repeat_ngram_size=3,
+                encoder_no_repeat_ngram_size=3,
+                repetition_penalty=3.5,
+                num_beams=2,
+                do_sample=False,
+                early_stopping=True,
+            )
+            result.append(summary_txt[0]["summary_text"])
+
+if len(result):
+    st.info(response)
+
+
+#----------------------------------------------------------------
+
+
+# st.title('🎈 App Name')
+# st.write('Hello world!')
+# hf_name = "pszemraj/led-base-book-summary"
+# st.write('Is cuda available?' ,torch.cuda.is_available())
+
+# summarizer = pipeline(
+#     "summarization",
+#     hf_name,
+#     device=0 if torch.cuda.is_available() else -1,
+# )
+
+# st.write('summarizer pipeline is loaded')
+
+# wall_of_text = "The majority of available text summarization datasets include short-form source documents that lack long-range causal and temporal dependencies, and often contain strong layout and stylistic biases. While relevant, such datasets will offer limited challenges for future generations of text summarization systems. We address these issues by introducing BookSum, a collection of datasets for long-form narrative summarization. Our dataset covers source documents from the literature domain, such as novels, plays and stories, and includes highly abstractive, human written summaries on three levels of granularity of increasing difficulty: paragraph-, chapter-, and book-level. The domain and structure of our dataset poses a unique set of challenges for summarization systems, which include: processing very long documents, non-trivial causal and temporal dependencies, and rich discourse structures. To facilitate future work, we trained and evaluated multiple extractive and abstractive summarization models as baselines for our dataset."
+
+# result = summarizer(
+#     wall_of_text,
+#     min_length=8,
+#     max_length=64,
+#     no_repeat_ngram_size=3,
+#     encoder_no_repeat_ngram_size=3,
+#     repetition_penalty=3.5,
+#     num_beams=2,
+#     do_sample=False,
+#     early_stopping=True,
+# )
+# #print(result[0]["generated_text"])
+# st.write('Summarizing ...')
+# st.write(result[0]["summary_text"])
 
 
 # with st.echo(code_location='below'):
