@@ -35,7 +35,12 @@ st.write('summarizer pipeline is loaded')
 
 #txt_input = st.text_area('Enter your text', '', height=200)
 
-wall_of_text = "The majority of available text summarization datasets include short-form source documents that lack long-range causal and temporal dependencies, and often contain strong layout and stylistic biases. While relevant, such datasets will offer limited challenges for future generations of text summarization systems. We address these issues by introducing BookSum, a collection of datasets for long-form narrative summarization. Our dataset covers source documents from the literature domain, such as novels, plays and stories, and includes highly abstractive, human written summaries on three levels of granularity of increasing difficulty: paragraph-, chapter-, and book-level. The domain and structure of our dataset poses a unique set of challenges for summarization systems, which include: processing very long documents, non-trivial causal and temporal dependencies, and rich discourse structures. To facilitate future work, we trained and evaluated multiple extractive and abstractive summarization models as baselines for our dataset."
+wall_of_text = "Egypt is a country located in the northeastern corner of Africa. Its heartland, the Nile River valley and delta, \
+was the home of one of the principal civilizations of the ancient Middle East and was the site of one of the world’s earliest urban and literate societies.\
+Ancient Egypt was the preeminent civilization in the Mediterranean world for almost 30 centuries. \
+Egypt has thousands of years of recorded history. Ancient Egypt was among the earliest civilizations in the world. \
+For millennia, Egypt developed strikingly unique, complex and stable cultures that influenced other cultures of Europe , Africa and the Middle East."
+
 result = []
 with st.form('summarize_form', clear_on_submit=True):
     txt_input = st.text_area('Enter text:', wall_of_text, height=200)
