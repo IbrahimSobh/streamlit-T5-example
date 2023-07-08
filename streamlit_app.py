@@ -5,8 +5,11 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 st.title('🤗 Text Summarizer: https://www.linkedin.com/in/ibrahim-sobh-phd-8681757/')
 
 
-tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-small")
-model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-small")
+#tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-small")
+#model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-small")
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large")
+
 st.write('flan-t5-small is loaded')
 
 # input_text = "translate English to German: How old are you?"
