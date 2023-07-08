@@ -14,7 +14,7 @@ For more, check out my LinkedIn [Ibrahim Sobh](https://www.linkedin.com/in/ibrah
 
 """
 
-st.set_page_config(page_title='Faln-T5 model 🤗 🚀)
+st.set_page_config(page_title='Faln-T5 model 🤗 🚀')
 
 
 
