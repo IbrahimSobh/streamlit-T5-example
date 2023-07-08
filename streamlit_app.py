@@ -34,7 +34,7 @@ result = []
 with st.form('summarize_form', clear_on_submit=True):
     #openai_api_key = st.text_input('OpenAI API Key', type = 'password', disabled=not txt_input)
     submitted = st.form_submit_button('Submit')
-    if submitted 
+    if submitted: 
         with st.spinner('Calculating...'):
             summary_txt = summarizer(
                 wall_of_text,
