@@ -36,37 +36,28 @@ st.write('summarizer pipeline is loaded')
 #txt_input = st.text_area('Enter your text', '', height=200)
 
 wall_of_text = "The majority of available text summarization datasets include short-form source documents that lack long-range causal and temporal dependencies, and often contain strong layout and stylistic biases. While relevant, such datasets will offer limited challenges for future generations of text summarization systems. We address these issues by introducing BookSum, a collection of datasets for long-form narrative summarization. Our dataset covers source documents from the literature domain, such as novels, plays and stories, and includes highly abstractive, human written summaries on three levels of granularity of increasing difficulty: paragraph-, chapter-, and book-level. The domain and structure of our dataset poses a unique set of challenges for summarization systems, which include: processing very long documents, non-trivial causal and temporal dependencies, and rich discourse structures. To facilitate future work, we trained and evaluated multiple extractive and abstractive summarization models as baselines for our dataset."
-# sum_res = ''
+result = []
 with st.form('summarize_form', clear_on_submit=True):
     txt_input = st.text_area('Enter text:', wall_of_text, height=200)
     submitted = st.form_submit_button('Submit')
     if submitted: 
-        st.spinner('Calculating...')    
-        summary_txt = summarizer(
-            txt_input,
-            min_length=8,
-            max_length=64,
-            no_repeat_ngram_size=3,
-            encoder_no_repeat_ngram_size=3,
-            repetition_penalty=3.5,
-            num_beams=2,
-            do_sample=False,
-            early_stopping=True,
-        )
-        st.info(summary_txt[0]["summary_text"])
-        # if summary_txt:
-        #     sum_res = summary_txt[0]["summary_text"]
-            
+        with st.spinner('Calculating...'):
+            summary_txt = summarizer(
+                txt_input,
+                min_length=8,
+                max_length=64,
+                no_repeat_ngram_size=3,
+                encoder_no_repeat_ngram_size=3,
+                repetition_penalty=3.5,
+                num_beams=2,
+                do_sample=False,
+                early_stopping=True,
+            )
+            result.append(summary_txt)
+        #st.info(summary_txt[0]["summary_text"])
 
-# if sum_res: 
-#     st.info(sum_res)
-# else:
-#     st.info('No generated summary!')
-
-#st.info(summary_txt[0]["summary_text"])
-#st.info('test')            
-
-
+if len(result):
+    st.info(response[0])            
 #----------------------------------------------------------------
 
 
