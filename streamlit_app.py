@@ -28,11 +28,11 @@ with st.form('summarize_form', clear_on_submit=True):
             summary_txt = summarizer(
                 txt_input,
                 min_length=8,
-                max_length=32,
+                max_length=48,
                 no_repeat_ngram_size=3,
                 encoder_no_repeat_ngram_size=3,
                 repetition_penalty=3.5,
-                num_beams=2,
+                num_beams=4,
                 do_sample=False,
                 early_stopping=True,
             )
