@@ -35,11 +35,12 @@ st.write('summarizer pipeline is loaded')
 
 #txt_input = st.text_area('Enter your text', '', height=200)
 
-wall_of_text = "Egypt is a country located in the northeastern corner of Africa. Its heartland, the Nile River valley and delta, \
-was the home of one of the principal civilizations of the ancient Middle East and was the site of one of the world’s earliest urban and literate societies.\
+wall_of_text = "Egypt is a country located in the north of Africa. Its heartland, the Nile River valley and delta. \
+Egypt has thousands of years of recorded history. Ancient Egypt was among the earliest civilizations in the world and \
+was the site of one of the world’s earliest urban and literate societies.\
 Ancient Egypt was the preeminent civilization in the Mediterranean world for almost 30 centuries. \
-Egypt has thousands of years of recorded history. Ancient Egypt was among the earliest civilizations in the world. \
-For millennia, Egypt developed strikingly unique, complex and stable cultures that influenced other cultures of Europe , Africa and the Middle East."
+Egypt has a rich history & culture that dates back thousands of years ago starting with the Pharaohnic culture the Christianity & Islam. \
+Egypt is a popular tourist destination with many attractions. Some of the popular tourist destinations are Cairo, Sharm El Sheikh, Hurghada, Luxor, Aswan"  
 
 result = []
 with st.form('summarize_form', clear_on_submit=True):
