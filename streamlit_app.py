@@ -14,7 +14,7 @@ st.write('summarizer pipeline is loaded')
 
 
 result = []
-with st.form('summarize_form', clear_on_submit=True):
+with st.form('summarize_form', clear_on_submit=False):
     txt_input = st.text_area('Enter text:', '', height=200)
     submitted = st.form_submit_button('Submit')
     if submitted: 
