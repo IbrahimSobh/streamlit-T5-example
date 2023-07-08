@@ -33,20 +33,21 @@ with st.form('summarize_form', clear_on_submit=True):
     submitted = st.form_submit_button('Submit')
     if submitted: 
         with st.spinner('Calculating...'):
-            # summary_txt = summarizer(
-            #     submitted,
-            #     min_length=8,
-            #     max_length=64,
-            #     no_repeat_ngram_size=3,
-            #     encoder_no_repeat_ngram_size=3,
-            #     repetition_penalty=3.5,
-            #     num_beams=2,
-            #     do_sample=False,
-            #     early_stopping=True,
-            # )
+            summary_txt = summarizer(
+                submitted,
+                min_length=8,
+                max_length=64,
+                no_repeat_ngram_size=3,
+                encoder_no_repeat_ngram_size=3,
+                repetition_penalty=3.5,
+                num_beams=2,
+                do_sample=False,
+                early_stopping=True,
+            )
 
+st.info(summary_txt)
 #st.info(summary_txt[0]["summary_text"])
-st.info('test')            
+#st.info('test')            
 
 
 #----------------------------------------------------------------
